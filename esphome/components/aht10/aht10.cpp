@@ -28,7 +28,7 @@ static const uint8_t AHT10_ATTEMPTS = 3;         // safety margin, normally 3 at
 
 void AHT10Component::setup() {
   ESP_LOGCONFIG(TAG, "Setting up AHT10...");
-123
+
   if (!this->write_bytes(0, AHT10_CALIBRATE_CMD, sizeof(AHT10_CALIBRATE_CMD))) {
     ESP_LOGE(TAG, "Communication with AHT10 failed!");
     this->mark_failed();
