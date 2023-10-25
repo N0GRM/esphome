@@ -111,14 +111,14 @@ void AHT10Component::update() {
   uint32_t raw_humidity = ((data[1] << 16) | (data[2] << 8) | data[3]) >> 4;
 
   //float temperature = 99.0f;
-  float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 58.34f;
+  float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 58.39f;
   //float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 50.0f;
   float humidity;
   if (raw_humidity == 0) {  // unrealistic value
     humidity = NAN;
   } else {
     //humidity = 99.0f;
-    humidity = ((float) raw_humidity * 100.0f / 1048576.0f) + 21.3f;
+    humidity = ((float) raw_humidity * 100.0f / 1048576.0f) + 21.8f;
     //humidity = (float) raw_humidity * 100.0f / 1048576.0f;
   }
 
