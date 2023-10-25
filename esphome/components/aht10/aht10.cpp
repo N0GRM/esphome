@@ -116,7 +116,8 @@ void AHT10Component::update() {
   if (raw_humidity == 0) {  // unrealistic value
     humidity = NAN;
   } else {
-    humidity = (float) raw_humidity * 100.0f / 1048576.0f;
+    humidity = ((float) raw_humidity * 100.0f / 1048576.0f) + 12.0f;
+    //humidity = (float) raw_humidity * 100.0f / 1048576.0f;
   }
 
   if (this->temperature_sensor_ != nullptr) {
