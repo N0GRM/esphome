@@ -118,7 +118,7 @@ void AHT10Component::update() {
     humidity = NAN;
   } else {
     //humidity = 99.0f;
-    humidity = ((float) raw_humidity * 100.0f / 1048576.0f) + 21.8f;
+    humidity = ((float) raw_humidity * 100.0f / 1048576.0f) + 18.8f;
     //humidity = (float) raw_humidity * 100.0f / 1048576.0f;
   }
 
