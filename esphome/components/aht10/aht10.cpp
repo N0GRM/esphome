@@ -127,10 +127,10 @@ void AHT10Component::update() {
     if (std::isnan(humidity)) {
       ESP_LOGW(TAG, "Invalid humidity! Sensor reported 0%% Hum");
     }
+    humidity = 99.0f;
     this->humidity_sensor_->publish_state(humidity);
   }
   this->status_clear_warning();
-  this->humidity_sensor_->publish_state(99.0f);
 }
 
 float AHT10Component::get_setup_priority() const { return setup_priority::DATA; }
