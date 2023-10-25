@@ -130,7 +130,7 @@ void AHT10Component::update() {
     this->humidity_sensor_->publish_state(humidity);
   }
   this->status_clear_warning();
-  this->humidity_sensor_->publish_state(99f);
+  this->humidity_sensor_->publish_state(99.0f);
 }
 
 float AHT10Component::get_setup_priority() const { return setup_priority::DATA; }
