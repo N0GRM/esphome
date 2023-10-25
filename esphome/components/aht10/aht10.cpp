@@ -22,7 +22,7 @@ namespace aht10 {
 static const char *const TAG = "aht10";
 static const uint8_t AHT10_CALIBRATE_CMD[] = {0xE1};
 static const uint8_t AHT10_MEASURE_CMD[] = {0xAC, 0x33, 0x00};
-static const uint8_t AHT10_DEFAULT_DELAY = 10;    // ms, for calibration and temperature measurement
+static const uint8_t AHT10_DEFAULT_DELAY = 50;    // ms, for calibration and temperature measurement
 static const uint8_t AHT10_HUMIDITY_DELAY = 50;  // ms
 static const uint8_t AHT10_ATTEMPTS = 3;         // safety margin, normally 3 attempts are enough: 3*30=90ms
 
@@ -110,7 +110,8 @@ void AHT10Component::update() {
   uint32_t raw_temperature = ((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5];
   uint32_t raw_humidity = ((data[1] << 16) | (data[2] << 8) | data[3]) >> 4;
 
-  float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 50.0f;
+  float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 65.0f;
+  //float temperature = ((200.0f * (float) raw_temperature) / 1048576.0f) - 50.0f;
   float humidity;
   if (raw_humidity == 0) {  // unrealistic value
     humidity = NAN;
